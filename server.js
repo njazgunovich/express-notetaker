@@ -1,7 +1,7 @@
 // Dependencies
 // =============================================================
 var express = require("express");
-
+var router = express.Router()
 
 // Sets up the Express App
 // =============================================================
@@ -12,7 +12,8 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-require("./routes/html-routes")(app)
+app.use('', require("./routes/api-routes"))
+app.use('', require("./routes/html-routes"))
     // Starts the server to begin listening
     // =============================================================
 app.listen(PORT, function() {
